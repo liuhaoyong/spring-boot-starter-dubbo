@@ -11,97 +11,113 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties(prefix = "spring.dubbo")
 public class DubboProperties {
-  /**
-   * dubbo application name
-   */
-  private String appname;
-  /**
-   * dubbo registry address
-   */
-  private String registry;
-  /**
-   * communication protocol, default is dubbo
-   */
-  private String protocol = "dubbo";
-  /**
-   * dubbo listen port, default 20800
-   */
-  private int port = 20800;
-  /**
-   * dubbo thread count, default 200
-   */
-  private int threads = 200;
+    /**
+     * dubbo application name
+     */
+    private String appname;
+    /**
+     * dubbo registry address
+     */
+    private String registry;
+    /**
+     * communication protocol, default is dubbo
+     */
+    private String protocol = "dubbo";
+    /**
+     * dubbo listen port, default 20800
+     */
+    private int    port     = 20800;
+    /**
+     * dubbo thread count, default 200
+     */
+    private int    threads  = 200;
 
-  /**
-   * dubbo version, may override by {@link com.alibaba.dubbo.config.annotation.Service#version()}
-   */
-  private String version = "";
+    /**
+     * dubbo version, may override by
+     * {@link com.alibaba.dubbo.config.annotation.Service#version()}
+     */
+    private String version  = "";
 
-  /**
-   * dubbo group, may override by {@link com.alibaba.dubbo.config.annotation.Service#group()}
-   */
-  private String group = "";
+    /**
+     * dubbo group, may override by
+     * {@link com.alibaba.dubbo.config.annotation.Service#group()}
+     */
+    private String group    = "";
 
-  public String getAppname() {
-    return this.appname;
-  }
+    /**
+     * dubbo owner, may override by
+     * {@link com.alibaba.dubbo.config.annotation.Service#owner()}
+     */
+    private String owner    = "";
 
-  public void setAppname(String appname) {
-    this.appname = appname;
-  }
+    public String getOwner() {
+        return owner;
+    }
 
-  public String getRegistry() {
-    return this.registry;
-  }
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 
-  public void setRegistry(String registry) {
-    this.registry = registry;
-  }
+    public String getAppname() {
+        return this.appname;
+    }
 
-  public String getProtocol() {
-    return this.protocol;
-  }
+    public void setAppname(String appname) {
+        this.appname = appname;
+    }
 
-  public void setProtocol(String protocol) {
-    this.protocol = protocol;
-  }
+    public String getRegistry() {
+        return this.registry;
+    }
 
-  public int getPort() {
-    return this.port;
-  }
+    public void setRegistry(String registry) {
+        this.registry = registry;
+    }
 
-  public void setPort(int port) {
-    this.port = port;
-  }
+    public String getProtocol() {
+        return this.protocol;
+    }
 
-  public int getThreads() {
-    return this.threads;
-  }
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
 
-  public void setThreads(int threads) {
-    this.threads = threads;
-  }
+    public int getPort() {
+        return this.port;
+    }
 
-  public String getVersion() {
-    return this.version;
-  }
+    public void setPort(int port) {
+        this.port = port;
+    }
 
-  public void setVersion(String version) {
-    this.version = version;
-  }
+    public int getThreads() {
+        return this.threads;
+    }
 
-  public String getGroup() {
-    return this.group;
-  }
+    public void setThreads(int threads) {
+        this.threads = threads;
+    }
 
-  public void setGroup(String group) {
-    this.group = group;
-  }
+    public String getVersion() {
+        return this.version;
+    }
 
-  @Override
-  public String toString() {
-    return "DubboProperties [appname=" + this.appname + ", registry=" + this.registry
-        + ", protocol=" + this.protocol + ", port=" + this.port + ", threads=" + this.threads
-        + ", version=" + this.version + ", group=" + this.group + "]";
-  }
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getGroup() {
+        return this.group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    @Override
+    public String toString() {
+        return "DubboProperties [appname=" + this.appname + ", registry=" + this.registry + ", protocol="
+                + this.protocol + ", port=" + this.port + ", threads=" + this.threads + ", version=" + this.version
+                + ", group=" + this.group  + ", owner="+this.owner + "]";
+    }
 }
