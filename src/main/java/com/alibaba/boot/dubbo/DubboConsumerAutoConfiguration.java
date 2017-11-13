@@ -152,7 +152,7 @@ public class DubboConsumerAutoConfiguration {
     if (version != null && !"".equals(version)) {
       consumerBean.setVersion(version);
     }
-    int timeout = dubboConsumer.timeout();
+    int timeout = dubboConsumer.timeout() != 0 ? dubboConsumer.timeout() : this.properties.getTimeout();
     consumerBean.setTimeout(timeout);
     String client = dubboConsumer.client();
     consumerBean.setClient(client);

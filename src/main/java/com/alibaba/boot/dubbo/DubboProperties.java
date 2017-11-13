@@ -49,6 +49,11 @@ public class DubboProperties {
      * {@link com.alibaba.dubbo.config.annotation.Service#owner()}
      */
     private String owner    = "";
+    
+    /**
+     * default timeout, default 0
+     */
+    private int timeout     = 0;
 
     public String getOwner() {
         return owner;
@@ -113,11 +118,20 @@ public class DubboProperties {
     public void setGroup(String group) {
         this.group = group;
     }
+    
+    public int getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
 
     @Override
     public String toString() {
         return "DubboProperties [appname=" + this.appname + ", registry=" + this.registry + ", protocol="
                 + this.protocol + ", port=" + this.port + ", threads=" + this.threads + ", version=" + this.version
-                + ", group=" + this.group  + ", owner="+this.owner + "]";
+                + ", group=" + this.group  + ", owner="+this.owner + ", timeout="+this.timeout + "]";
     }
+
 }
