@@ -43,6 +43,7 @@ public class DubboAutoConfiguration {
     protocolConfig.setName(this.properties.getProtocol());
     protocolConfig.setPort(this.properties.getPort());
     protocolConfig.setThreads(this.properties.getThreads());
+    protocolConfig.setThreadpool(this.properties.getThreadpool());
     return protocolConfig;
   }
 

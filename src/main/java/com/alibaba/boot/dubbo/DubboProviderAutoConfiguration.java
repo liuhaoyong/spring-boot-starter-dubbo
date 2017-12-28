@@ -32,6 +32,7 @@ import com.alibaba.dubbo.config.spring.ServiceBean;
 @AutoConfigureAfter(DubboAutoConfiguration.class)
 @EnableConfigurationProperties(DubboProperties.class)
 public class DubboProviderAutoConfiguration {
+
   @Autowired
   private ApplicationContext applicationContext;
 
@@ -43,6 +44,7 @@ public class DubboProviderAutoConfiguration {
 
   @Autowired
   private ProtocolConfig protocolConfig;
+
   @Autowired
   private RegistryConfig registryConfig;
 
@@ -80,6 +82,16 @@ public class DubboProviderAutoConfiguration {
     if (group != null && !"".equals(group)) {
       serviceConfig.setGroup(group);
     }
+    int timeout = service.timeout();
+    if (timeout == 0) {
+      timeout = this.properties.getTimeout();
+    }
+    serviceConfig.setTimeout(timeout);
+    int delay = service.delay();
+    if (delay == 0) {
+      delay = this.properties.getDelay();
+    }
+    serviceConfig.setDelay(delay);
     serviceConfig.setApplicationContext(this.applicationContext);
     serviceConfig.setApplication(this.applicationConfig);
     serviceConfig.setProtocol(this.protocolConfig);

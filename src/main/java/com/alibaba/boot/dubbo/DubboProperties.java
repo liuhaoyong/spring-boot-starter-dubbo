@@ -26,34 +26,60 @@ public class DubboProperties {
     /**
      * dubbo listen port, default 20800
      */
-    private int    port     = 20800;
+    private int port = 20800;
     /**
      * dubbo thread count, default 200
      */
-    private int    threads  = 200;
+    private int threads = 200;
 
     /**
      * dubbo version, may override by
      * {@link com.alibaba.dubbo.config.annotation.Service#version()}
      */
-    private String version  = "";
+    private String version = "";
 
     /**
      * dubbo group, may override by
      * {@link com.alibaba.dubbo.config.annotation.Service#group()}
      */
-    private String group    = "";
+    private String group = "";
 
     /**
      * dubbo owner, may override by
      * {@link com.alibaba.dubbo.config.annotation.Service#owner()}
      */
-    private String owner    = "";
-    
+    private String owner = "";
+
     /**
      * default timeout, default 0
      */
-    private int timeout     = 0;
+    private int timeout = 0;
+
+    /**
+     * 线程池类型
+     */
+    private String threadpool;
+
+    /**
+     * 服务延迟暴露时间，默认Spring初始化完成以后再暴露服务
+     */
+    private int delay = -1;
+
+    public int getDelay() {
+        return delay;
+    }
+
+    public void setDelay(int delay) {
+        this.delay = delay;
+    }
+
+    public String getThreadpool() {
+        return threadpool;
+    }
+
+    public void setThreadpool(String threadpool) {
+        this.threadpool = threadpool;
+    }
 
     public String getOwner() {
         return owner;
@@ -118,7 +144,7 @@ public class DubboProperties {
     public void setGroup(String group) {
         this.group = group;
     }
-    
+
     public int getTimeout() {
         return timeout;
     }
@@ -129,9 +155,19 @@ public class DubboProperties {
 
     @Override
     public String toString() {
-        return "DubboProperties [appname=" + this.appname + ", registry=" + this.registry + ", protocol="
-                + this.protocol + ", port=" + this.port + ", threads=" + this.threads + ", version=" + this.version
-                + ", group=" + this.group  + ", owner="+this.owner + ", timeout="+this.timeout + "]";
+        return "DubboProperties{" +
+                "appname='" + appname + '\'' +
+                ", registry='" + registry + '\'' +
+                ", protocol='" + protocol + '\'' +
+                ", port=" + port +
+                ", threads=" + threads +
+                ", version='" + version + '\'' +
+                ", group='" + group + '\'' +
+                ", owner='" + owner + '\'' +
+                ", timeout=" + timeout +
+                ", threadpool='" + threadpool + '\'' +
+                ", delay=" + delay +
+                '}';
     }
 
 }

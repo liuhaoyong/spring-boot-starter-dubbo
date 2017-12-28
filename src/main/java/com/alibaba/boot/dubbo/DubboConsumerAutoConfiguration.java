@@ -49,6 +49,7 @@ public class DubboConsumerAutoConfiguration {
 
   @Autowired
   private ApplicationConfig applicationConfig;
+
   @Autowired
   private RegistryConfig registryConfig;
 
@@ -152,8 +153,6 @@ public class DubboConsumerAutoConfiguration {
     if (version != null && !"".equals(version)) {
       consumerBean.setVersion(version);
     }
-    int timeout = dubboConsumer.timeout() != 0 ? dubboConsumer.timeout() : this.properties.getTimeout();
-    consumerBean.setTimeout(timeout);
     String client = dubboConsumer.client();
     consumerBean.setClient(client);
     String url = dubboConsumer.url();
