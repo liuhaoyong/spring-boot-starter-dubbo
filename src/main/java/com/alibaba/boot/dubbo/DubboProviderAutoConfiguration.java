@@ -68,6 +68,10 @@ public class DubboProviderAutoConfiguration {
             + ", cause: The @Service undefined interfaceClass or interfaceName, and the service class unimplemented any interfaces.");
       }
     }
+
+    int retries = service.retries();
+    serviceConfig.setRetries(retries);
+
     String version = service.version();
     if (version == null || "".equals(version)) {
       version = this.properties.getVersion();

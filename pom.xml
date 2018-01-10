@@ -11,7 +11,7 @@
 
 	<groupId>com.alibaba</groupId>
 	<artifactId>spring-boot-starter-dubbo</artifactId>
-	<version>1.0.2017122801</version>
+	<version>1.0.2018010301</version>
 	<packaging>jar</packaging>
 
 	<name>spring-boot-starter-dubbo</name>
